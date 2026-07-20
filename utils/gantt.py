@@ -8,7 +8,6 @@ def draw(schedule):
     print(" " * 30 + "GANTT CHART")
     print("=" * 80)
 
-    # Compress consecutive executions
     blocks = []
     start_times = [0]
 
@@ -26,26 +25,22 @@ def draw(schedule):
 
     blocks.append((current, count))
 
-    # Top Border
     print("+", end="")
     for name, length in blocks:
         print("-" * (length * 4) + "+", end="")
     print()
 
-    # Process Names
     print("|", end="")
     for name, length in blocks:
         width = length * 4
         print(f"{name:^{width}}|", end="")
     print()
 
-    # Bottom Border
     print("+", end="")
     for name, length in blocks:
         print("-" * (length * 4) + "+", end="")
     print()
 
-    # Timeline
     time = 0
     print(f"{time:<2}", end="")
 
