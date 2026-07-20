@@ -19,7 +19,6 @@ def schedule(processes):
             current_time += 1
             continue
 
-        # Shortest Burst Time
         ready.sort(key=lambda p: (p.burst, p.arrival))
 
         p = ready[0]
