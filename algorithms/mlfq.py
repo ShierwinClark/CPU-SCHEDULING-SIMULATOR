@@ -13,14 +13,12 @@ def schedule(
 
     processes.sort(key=lambda p: p.arrival)
 
-    # Reset process state
     for p in processes:
         p.remaining = p.burst
         p.started = False
         p.response = -1
         p.completion = 0
 
-        # number of quantums consumed in current queue
         p.allotment_used = 0
 
     q0 = deque()
@@ -36,15 +34,12 @@ def schedule(
 
     while completed < len(processes):
 
-        # Add newly arrived jobs
         while index < len(processes) and processes[index].arrival <= time:
             processes[index].allotment_used = 0
             q0.append(processes[index])
             index += 1
 
-        # ==========================================================
-        # Q0
-        # ==========================================================
+
         if q0:
 
             p = q0.popleft()
@@ -87,9 +82,7 @@ def schedule(
 
             continue
 
-        # ==========================================================
-        # Q1
-        # ==========================================================
+
         if q1:
 
             p = q1.popleft()
@@ -141,9 +134,7 @@ def schedule(
 
             continue
 
-        # ==========================================================
-        # Q2
-        # ==========================================================
+
         if q2:
 
             p = q2.popleft()
@@ -195,9 +186,7 @@ def schedule(
 
             continue
 
-        # ==========================================================
-        # Q3 (FCFS)
-        # ==========================================================
+
         if q3:
 
             p = q3.popleft()
@@ -239,9 +228,6 @@ def schedule(
 
             continue
 
-        # ==========================================================
-        # CPU Idle
-        # ==========================================================
 
         gantt.append("IDLE")
         time += 1
