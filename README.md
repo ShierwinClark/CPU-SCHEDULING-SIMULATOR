@@ -89,4 +89,4 @@ python gui.py
 
 ## Authors
 
-Add your name(s) here.
+SHIERWIN CLARK J. NIÑO
