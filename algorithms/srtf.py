@@ -21,24 +21,20 @@ def schedule(processes):
             current_time += 1
             continue
 
-        # Shortest Remaining Time
         ready.sort(key=lambda p: (p.remaining, p.arrival))
 
         p = ready[0]
 
-        # Response Time
         if not p.started:
 
             p.started = True
             p.response = current_time - p.arrival
 
-        # Execute for ONE time unit only
         gantt.append(p.pid)
 
         p.remaining -= 1
         current_time += 1
 
-        # Finished?
         if p.remaining == 0:
 
             p.completion = current_time
