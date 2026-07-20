@@ -15,7 +15,6 @@ def schedule(processes, quantum):
 
     while completed < len(processes):
 
-        # Add newly arrived processes
         while (
             index < len(processes)
             and processes[index].arrival <= current_time
@@ -47,7 +46,6 @@ def schedule(processes, quantum):
             p.remaining -= 1
             current_time += 1
 
-            # Check if new process arrived
             while (
                 index < len(processes)
                 and processes[index].arrival <= current_time
@@ -59,7 +57,6 @@ def schedule(processes, quantum):
             if p.remaining == 0:
                 break
 
-        # Finished
         if p.remaining == 0:
 
             p.completion = current_time
