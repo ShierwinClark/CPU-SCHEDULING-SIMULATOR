@@ -23,7 +23,6 @@ def schedule(processes, quantum):
             queue.append(processes[index])
             index += 1
 
-        # CPU Idle
         if len(queue) == 0:
 
             gantt.append("IDLE")
