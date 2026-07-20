@@ -4,15 +4,12 @@ class Process:
         self.arrival = arrival
         self.burst = burst
 
-        # Used by preemptive algorithms
         self.remaining = burst
 
-        # Metrics
         self.completion = 0
         self.turnaround = 0
         self.response = -1
 
-        # Internal flag
         self.started = False
 
     def reset(self):
