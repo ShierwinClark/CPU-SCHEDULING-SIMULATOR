@@ -6,7 +6,7 @@ def generate_processes(n):
 
     processes = []
 
-    arrivals = sorted(random.sample(range(0, n * 2 + 2), n))
+    arrivals = random.sample(range(0, n * 2 + 2), n)
 
     for i in range(n):
 
